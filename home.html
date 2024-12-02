@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tạo Mã QR Khách Hàng SCTV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 400px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            text-align: center; 
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tạo Mã QR Khách Hàng SCTV</h1>
+    <form method="POST">
+        <input type="text" name="contract_number" placeholder="Nhập số hợp đồng" required>
+        <input type="text" name="customer_name" placeholder="Nhập tên khách hàng" required>
+        <input type="text" name="phone_number" placeholder="Nhập số điện thoại" required>
+        <button type="submit">Tải về file PDF</button>
+    </form>
+</body>
+</html>
