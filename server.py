@@ -12,7 +12,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 # Đăng ký font để hỗ trợ tiếng Việt
-pdfmetrics.registerFont(TTFont('Helvetica', 'Helvetica.ttf'))
+pdfmetrics.registerFont(TTFont('ARIAL', './static/fonts/ARIAL.ttf'))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -52,7 +52,7 @@ def index():
             width, height = landscape(letter)
             
             # Đặt font và size lớn
-            c.setFont('Helvetica', 40)
+            c.setFont('ARIAL', 40)
             
             # Thông tin khách hàng ở phía trên
             c.drawCentredString(width/2, height - 1*inch, f"Số Hợp Đồng: {contract_number}")
