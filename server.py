@@ -52,7 +52,7 @@ def index():
             width, height = landscape(letter)
             
             # Đặt font và size lớn
-            c.setFont('Arialn', 40)
+            c.setFont('Helvetica', 40)
             
             # Thông tin khách hàng ở phía trên
             c.drawCentredString(width/2, height - 1*inch, f"Số Hợp Đồng: {contract_number}")
