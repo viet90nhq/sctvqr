@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <img src="logo.png" alt="Logo của bạn" style="width: 150px; height: auto;"> -->
+    <title>Tạo Mã QR Khách Hàng SCTV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 400px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            text-align: center; 
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tạo Mã QR Khách Hàng SCTV</h1>
+    <div id="currentDateTime"></div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+
+            // Lấy các thành phần thời gian
+            const weekday = now.toLocaleString("vi-VN", { weekday: "long" }); // Thứ
+            const day = now.getDate().toString().padStart(2, "0"); // Ngày
+            const month = (now.getMonth() + 1).toString().padStart(2, "0"); // Tháng
+            const year = now.getFullYear(); // Năm
+            const hours = now.getHours().toString().padStart(2, "0"); // Giờ
+            const minutes = now.getMinutes().toString().padStart(2, "0"); // Phút
+            const seconds = now.getSeconds().toString().padStart(2, "0"); // Giây
+
+            // Ghép chuỗi theo định dạng mong muốn
+            const formattedTime = `${weekday}, ngày ${day} tháng ${month} năm ${year}, ${hours}:${minutes}:${seconds}`;
+            document.getElementById("currentDateTime").textContent = formattedTime;
+        }
+
+        // Gọi hàm lần đầu
+        updateDateTime();
+
+        // Cập nhật mỗi giây
+        setInterval(updateDateTime, 1000);
+    </script>
+
+    <form method="POST">
+        <input type="text" name="contract_number" placeholder="Nhập số hợp đồng" required>
+        <input type="text" name="customer_name" placeholder="Nhập tên khách hàng" required>
+        <input type="text" name="phone_number" placeholder="Nhập số điện thoại" required>
+        <button type="submit">Tải về file PDF</button>
+    </form>
+</body>
+</html>
