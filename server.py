@@ -12,7 +12,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 # Đăng ký font để hỗ trợ tiếng Việt
-pdfmetrics.registerFont(TTFont('Arial', './static/fonts/ARIAL.ttf'))
+pdfmetrics.registerFont(TTFont('Arial', './static/fonts/ARIAL.TTF'))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
