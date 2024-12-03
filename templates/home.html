@@ -26,10 +26,18 @@
     <script>
         function updateDateTime() {
             const now = new Date();
-            const formattedTime = now.toLocaleString("vi-VN", {
-                weekday: "long", year: "numeric", month: "long", day: "numeric",
-                hour: "2-digit", minute: "2-digit", second: "2-digit"
-            });
+
+            // Lấy các thành phần thời gian
+            const weekday = now.toLocaleString("vi-VN", { weekday: "long" }); // Thứ
+            const day = now.getDate().toString().padStart(2, "0"); // Ngày
+            const month = (now.getMonth() + 1).toString().padStart(2, "0"); // Tháng
+            const year = now.getFullYear(); // Năm
+            const hours = now.getHours().toString().padStart(2, "0"); // Giờ
+            const minutes = now.getMinutes().toString().padStart(2, "0"); // Phút
+            const seconds = now.getSeconds().toString().padStart(2, "0"); // Giây
+
+            // Ghép chuỗi theo định dạng mong muốn
+            const formattedTime = `${weekday}, ngày ${day} tháng ${month} năm ${year}, ${hours}:${minutes}:${seconds}`;
             document.getElementById("currentDateTime").textContent = formattedTime;
         }
 
@@ -38,7 +46,6 @@
 
         // Cập nhật mỗi giây
         setInterval(updateDateTime, 1000);
-    </script>
     <form method="POST">
         <input type="text" name="contract_number" placeholder="Nhập số hợp đồng" required>
         <input type="text" name="customer_name" placeholder="Nhập tên khách hàng" required>
