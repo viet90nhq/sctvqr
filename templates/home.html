@@ -21,8 +21,9 @@
     </style>
 </head>
 <body>
-    <!-- <img src="logo.png" alt="Logo của bạn" style="width: 150px; height: auto;"> -->
-    <h1>Tạo Mã QR Khách Hàng SCTV</h1>
+    <img src="static/images/SCTV_logo.png" alt="SCTV" style="width: 100px; height: auto;">
+    <h1>Tạo Mã QR Khách Hàng </h1>
+    
     <div id="currentDateTime"></div>
 
     <script>
@@ -39,7 +40,7 @@
             const seconds = now.getSeconds().toString().padStart(2, "0"); // Giây
 
             // Ghép chuỗi theo định dạng mong muốn
-            const formattedTime = `${weekday}, ngày ${day} tháng ${month} năm ${year}, ${hours}:${minutes}:${seconds}`;
+            const formattedTime = `${weekday}, ${day}/${month}/${year}  ${hours}:${minutes}:${seconds}`;
             document.getElementById("currentDateTime").textContent = formattedTime;
         }
 
