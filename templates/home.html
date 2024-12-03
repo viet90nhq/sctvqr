@@ -21,7 +21,24 @@
 </head>
 <body>
     <h1>Tạo Mã QR Khách Hàng SCTV</h1>
-    
+    <div id="currentDateTime"></div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const formattedTime = now.toLocaleString("vi-VN", {
+                weekday: "long", year: "numeric", month: "long", day: "numeric",
+                hour: "2-digit", minute: "2-digit", second: "2-digit"
+            });
+            document.getElementById("currentDateTime").textContent = formattedTime;
+        }
+
+        // Gọi hàm lần đầu
+        updateDateTime();
+
+        // Cập nhật mỗi giây
+        setInterval(updateDateTime, 1000);
+    </script>
     <form method="POST">
         <input type="text" name="contract_number" placeholder="Nhập số hợp đồng" required>
         <input type="text" name="customer_name" placeholder="Nhập tên khách hàng" required>
